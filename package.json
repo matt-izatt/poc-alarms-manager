@@ -1,0 +1,24 @@
+{
+  "name": "poc-alarms-manager",
+  "version": "0.0.1",
+  "description": "A proof of concept alarms manager for cloudwatch and jira",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lambda"
+  ],
+  "author": "Matt Izatt <matt.izatt@hotmail.co.uk>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "node-fetch": "^3.1.1"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.90",
+    "@types/node": "^17.0.10",
+    "typescript": "^4.5.4"
+  }
+}

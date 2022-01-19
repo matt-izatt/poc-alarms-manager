@@ -1,0 +1,9 @@
+{
+  "date": "2021-12-19T00:28:11+00:00",
+  "service": "lender-dashboard",
+  "stack": "Error: SomethingFailed\n    at new Logger (/Users/matti/dev/person-service/src/infrastructure/logger/Logger.ts:41:57)\n    at InternalDependencyContainer.construct (/Users/matti/dev/person-service/node_modules/tsyringe/dist/cjs/dependency-container.js:267:16)\n    at InternalDependencyContainer.resolveRegistration (/Users/matti/dev/person-service/node_modules/tsyringe/dist/cjs/dependency-container.js:157:24)\n    at InternalDependencyContainer.resolve (/Users/matti/dev/person-service/node_modules/tsyringe/dist/cjs/dependency-container.js:100:33)\n    at startServer (/Users/matti/dev/person-service/src/Server.ts:54:39)\n    at Object.<anonymous> (/Users/matti/dev/person-service/src/Index.ts:13:12)\n    at Module._compile (node:internal/modules/cjs/loader:1101:14)\n    at Module._compile (/Users/matti/dev/person-service/node_modules/source-map-support/source-map-support.js:547:25)\n    at Module.m._compile (/private/var/folders/3f/7r4nt0991x7f612ld_fvbb4c0000gn/T/ts-node-dev-hook-4955385608767007.js:69:33)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1153:10)",
+  "data":{"some":"data","nestedData":{"nested":"data"}},
+  "meta":{"sessionId":"1234-5678-1234-5678"},
+  "level": "error",
+  "message": "Error doing x"
+}

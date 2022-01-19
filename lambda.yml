@@ -1,0 +1,60 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: A Lambda function which opens tickets in jira
+
+Parameters:
+  JiraURL:
+    Type: String
+    Default: https://team-12345.atlassian.net/rest/api/3
+    Description: Enter Jira team URL
+  JiraToken:
+    Type: String
+    Default: abcdef123456789
+    Description: Enter Jira access token
+
+Resources:
+  AlarmsManagerFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: AlarmsManagerFunction
+      Description: A Lambda function that returns the event that triggered it.
+      PackageType: Image
+      Code:
+        ImageUri: !Sub '${AWS::AccountId}.dkr.ecr.eu-west-2.amazonaws.com/poc-alarms-manager:latest'
+      Role:
+        Fn::GetAtt:
+        - AlarmsManagerRole
+        - Arn
+      Timeout: 300
+      Environment:
+        Variables:
+          JIRA_URL:
+            Ref: JiraURL
+          JIRA_TOKEN:
+            Ref: JiraToken
+  
+  AlarmsManagerRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: AlarmsManagerRole
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Principal:
+            Service:
+            - lambda.amazonaws.com
+          Action:
+          - sts:AssumeRole
+      Path: /
+      Policies:
+      - PolicyName: AWSLambdaBasicExecutionRole
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+          - Effect: Allow
+            Action:
+            - logs:CreateLogGroup
+            - logs:CreateLogStream
+            - logs:PutLogEvents
+            Resource: '*'

@@ -1,0 +1,11 @@
+node_modules
+dockerfile
+.dockerignore
+.git
+.gitignore
+.env
+docker-compose*
+lamda.yml
+mocks
+scripts
+src
